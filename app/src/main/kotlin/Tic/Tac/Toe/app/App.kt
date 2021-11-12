@@ -3,12 +3,15 @@
  */
 package Tic.Tac.Toe.app
 
-import Tic.Tac.Toe.utilities.StringUtils
-
-import org.apache.commons.text.WordUtils
-
-fun main() {
-    val tokens = StringUtils.split(MessageUtils.getMessage())
-    val result = StringUtils.join(tokens)
-    println(WordUtils.capitalize(result))
+fun main(){
+    var game = TicTacToe()
+    var result: Array<Array<String>> = game.move(2, 1)
+    println(toString(result))
+}
+fun toString(grid: Array<Array<String>>): String {
+    var result = ""
+    for (i in grid.indices) {
+        result += grid[i].joinToString(separator = ",") + "\n"
+    }
+    return result
 }
